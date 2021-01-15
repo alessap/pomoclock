@@ -10,3 +10,25 @@
   height: 100%;
   fill: white;
 }
+
+.background { viewport-fill: #000000 }
+
+.clockColor { fill: #00FFFF; }
+
+.dial { fill: #ffffff; }
+
+.dialMinor { fill: #bebebe; }
+
+.tick {
+  x1: 0;
+  x2: 0;
+  stroke-width: 2;
+  fill: inherit;
+}
+
+.thicktick {
+  x1: 0;
+  x2: 0;
+  stroke-width: 5;
+  fill: inherit;
+}
