@@ -63,15 +63,16 @@
     <g transform="rotate(348)"><line y1="0%"  y2="100%" class="tick" /></g>
     <g transform="rotate(354)"><line y1="0%"  y2="100%" class="tick" /></g>
   </g>
-  <rect x="7%" y="7%" width="86%" height="86%" fill="black" />
-  <g id="mins" pointer-events="visible" transform="translate(50%,50%)">
-    <rect x="$-4" y="-110" width="8" height="110" fill="#e0e0e0" />
+  <rect x="18" y="18" width="300-36" height="300-36" fill="black" />
+  <g id="mins"  pointer-events="visible" transform="translate(50%,50%)">
+    <rect x="$-3" y="-110" width="6" height="110" fill="#e0e0e0" />
   </g>
   <g id="hours" pointer-events="visible" transform="translate(50%,50%)">
-    <rect x="$-6" y="-75" width="12" height="75" fill="#ffffff" />
+    <rect x="$-4" y="-80"  width="8" height="80"  fill="#ffffff" />
   </g>
-  <g id="secs" pointer-events="visible" transform="translate(50%,50%)">
-    <rect x="$-2" y="-120" width="4" height="120" fill="#ff0000" />
+  <g id="secs"  pointer-events="visible" transform="translate(50%,50%)">
+    <rect x="$-2" y="-120" width="4" height="140" fill="#ff0000" />
   </g>
-  <circle cx="50%" cy="50%" r="10" fill="#444444" />
+  <circle cx="50%" cy="50%" r="8" fill="red" />
+  <circle cx="50%" cy="50%" r="6" fill="black" />
 </svg>
