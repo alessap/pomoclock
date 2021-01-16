@@ -2,7 +2,7 @@
   "name": "pomoclock",
   "version": "0.1.0",
   "private": true,
-  "license": "UNLICENSED",
+  "license": "MIT Licence",
   "devDependencies": {
     "@fitbit/sdk": "~4.2.1",
     "@fitbit/sdk-cli": "^1.7.3"
