@@ -32,3 +32,11 @@
   stroke-width: 5;
   fill: inherit;
 }
+
+#datestr {
+  font-size: "18";
+  font-weight: bold;
+  fill: "white";
+  text-anchor: middle;
+  text-length: 10;
+}

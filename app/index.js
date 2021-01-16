@@ -3,6 +3,18 @@ import document from "document";
 
 // Tick every second
 clock.granularity = "seconds";
+const months = [
+  "Jan", "Feb", "Mar",
+  "Apr", "May", "Jun",
+  "Jul", "Aug", "Sep",
+  "Oct", "Nov", "Dec"
+];
+const weekdays = [
+  "Sun",
+  "Mon", "Tue","Wed",
+  "Thu", "Fri", "Sat"
+];
+const datestr = document.getElementById("datestr");
 
 let hourHand = document.getElementById("hours");
 let minHand = document.getElementById("mins");
@@ -31,6 +43,13 @@ function updateClock() {
   let hours = today.getHours() % 12;
   let mins = today.getMinutes();
   let secs = today.getSeconds();
+  let customdatestr = (
+    weekdays[today.getDay()] + " " 
+    + today.getDate() + " " 
+    + months[today.getMonth()]
+    );
+
+  datestr.text = customdatestr;
 
   hourHand.groupTransform.rotate.angle = hoursToAngle(hours, mins);
   minHand.groupTransform.rotate.angle = minutesToAngle(mins);

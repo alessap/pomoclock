@@ -64,6 +64,11 @@
     <g transform="rotate(354)"><line y1="0%"  y2="100%" class="tick" /></g>
   </g>
   <rect x="18" y="18" width="300-36" height="300-36" fill="black" />
+  <section x="92%" y="50%">
+    <g id="date">
+      <text x="$-44" y="$+120" id="datestr">Mon 12 Jan</text>
+  </g>
+  </section>
   <g id="mins"  pointer-events="visible" transform="translate(50%,50%)">
     <rect x="$-3" y="-110" width="6" height="110" fill="#e0e0e0" />
   </g>
