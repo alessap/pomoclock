@@ -1,11 +1,15 @@
 # pomoclock
 
-pomoclock is an analogue clock face for Fitbit Versa 2.
+pomoclock is a simple analogue clock face for Fitbit Versa 2.
 
 ## Future plan
 
-- [ ] Add pomodoro timer running in the background.
+- [ ] Add pomodoro timer.
 
-- [ ] Add date.
+- [x] Add date.
 
 - [ ] Add support for other Fitbit smartwatches.
+
+- [ ] Add stats.
+
+- [ ] Add customization settings.
