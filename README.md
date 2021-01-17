@@ -18,7 +18,6 @@ Here is how it looks with Always ON Display enabled (AOD):
 
 - [x] Add Always ON Display support: it hides the second hand.
 
-
 ## Future plans
 
 - [ ] Add pomodoro timer.
