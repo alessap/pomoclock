@@ -1,5 +1,7 @@
 import clock from "clock";
 import document from "document";
+import { display } from "display";
+import { me as app } from 'appbit';
 
 // Tick every second
 clock.granularity = "seconds";
@@ -45,7 +47,12 @@ function get2digits(number) {
   return number.toString();
 }
 
-// Rotate the hanids every tick
+if (display.aodAvailable && app.permissions.granted('access_aod')) {
+	// allow always on display
+	display.aodAllowed = true;
+}
+
+// Rotate the hands every tick
 function updateClock() {
   let today = new Date();
   let hours = today.getHours() % 12;
@@ -67,6 +74,15 @@ function updateClock() {
   hourHand.groupTransform.rotate.angle = hoursToAngle(hours, mins);
   minHand.groupTransform.rotate.angle = minutesToAngle(mins);
   secHand.groupTransform.rotate.angle = secondsToAngle(secs);
+
+  if (display.aodActive) {
+    console.log("aodActive")
+    clock.granularity = "minutes";
+    secHand.style.display = "none";
+  } else {
+    clock.granularity = "seconds";
+    secHand.style.display = "inline";
+  }
 }
 
 // Update the clock every tick event
