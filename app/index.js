@@ -76,12 +76,11 @@ function updateClock() {
   secHand.groupTransform.rotate.angle = secondsToAngle(secs);
 
   if (display.aodActive) {
-    console.log("aodActive")
-    clock.granularity = "minutes";
     secHand.style.display = "none";
+    clock.granularity = "minutes";
   } else {
-    clock.granularity = "seconds";
     secHand.style.display = "inline";
+    clock.granularity = "seconds";
   }
 }
 
