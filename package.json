@@ -1,8 +1,19 @@
 {
   "name": "pomoclock",
   "version": "0.1.1",
+  "author": {
+    "name": "Alessandro Pirrotta",
+    "email": "alessandro.pirrotta@gmail.com"
+  },
+  "license": "See LICENCE file",
   "private": true,
-  "license": "MIT Licence",
+  "bugs": {
+    "url": "https://github.com/alessap/pomoclock/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/alessap/pomoclock.git"
+  },
   "devDependencies": {
     "@fitbit/sdk": "~4.2.1",
     "@fitbit/sdk-cli": "^1.7.3"
@@ -13,7 +24,9 @@
     "appDisplayName": "pomoclock",
     "iconFile": "resources/icon.png",
     "wipeColor": "#ffffff",
-    "requestedPermissions": [],
+    "requestedPermissions": [
+      "access_aod"
+    ],
     "buildTargets": [
       "mira"
     ],
@@ -23,5 +36,10 @@
   "scripts": {
     "build": "fitbit-build",
     "debug": "fitbit"
+  },
+  "dependencies": {
+    "@fitbit/jsonrpc-ts": "^3.2.1",
+    "fp-ts": "^2.8.2",
+    "io-ts": "^2.2.10"
   }
 }
