@@ -67,7 +67,12 @@
   <section x="92%" y="50%">
     <g id="date">
       <text x="$-44" y="$+120" id="datestr">Mon 12 Jan</text>
-  </g>
+    </g>
+  </section>
+  <section x="92%" y="50%">
+    <g id="digitalclock">
+      <text x="$-50" y="$-107" id="digitalclockstr">13:05</text>
+    </g>
   </section>
   <g id="mins"  pointer-events="visible" transform="translate(50%,50%)">
     <rect x="$-3" y="-110" width="6" height="110" fill="#e0e0e0" />
