@@ -15,6 +15,7 @@ const weekdays = [
   "Thu", "Fri", "Sat"
 ];
 const datestr = document.getElementById("datestr");
+const digitalclockstr = document.getElementById("digitalclockstr");
 
 let hourHand = document.getElementById("hours");
 let minHand = document.getElementById("mins");
@@ -37,6 +38,13 @@ function secondsToAngle(seconds) {
   return (360 / 60) * seconds;
 }
 
+function get2digits(number) {
+  if (number.toString().length == 1) {
+    number = "0" + number.toString();
+  }
+  return number.toString();
+}
+
 // Rotate the hanids every tick
 function updateClock() {
   let today = new Date();
@@ -48,9 +56,14 @@ function updateClock() {
     + today.getDate() + " " 
     + months[today.getMonth()]
     );
-
+  
+  let hours2digits = get2digits(today.getHours());
+  let minutes2digits = get2digits(today.getMinutes());
+  let digitalclock = hours2digits + ":" + minutes2digits;
+  
   datestr.text = customdatestr;
-
+  digitalclockstr.text = digitalclock;
+  
   hourHand.groupTransform.rotate.angle = hoursToAngle(hours, mins);
   minHand.groupTransform.rotate.angle = minutesToAngle(mins);
   secHand.groupTransform.rotate.angle = secondsToAngle(secs);
