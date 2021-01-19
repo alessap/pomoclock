@@ -24,9 +24,7 @@
     "appDisplayName": "pomoclock",
     "iconFile": "resources/icon.png",
     "wipeColor": "#ffffff",
-    "requestedPermissions": [
-      "access_aod"
-    ],
+    "requestedPermissions": [],
     "buildTargets": [
       "mira"
     ],
