@@ -1,6 +1,6 @@
 {
   "name": "pomoclock",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "author": {
     "name": "Alessandro Pirrotta",
     "email": "alessandro.pirrotta@gmail.com"
@@ -24,9 +24,7 @@
     "appDisplayName": "pomoclock",
     "iconFile": "resources/icon.png",
     "wipeColor": "#ffffff",
-    "requestedPermissions": [
-      "access_aod"
-    ],
+    "requestedPermissions": [],
     "buildTargets": [
       "mira"
     ],
