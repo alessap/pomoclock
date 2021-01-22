@@ -2,6 +2,7 @@ import clock from "clock";
 import document from "document";
 import { display } from "display";
 import { me as app } from 'appbit';
+import { vibration } from "haptics";
 
 // Tick every second
 clock.granularity = "seconds";
@@ -86,3 +87,37 @@ function updateClock() {
 
 // Update the clock every tick event
 clock.addEventListener("tick", updateClock);
+
+const pomodorotimer = document.getElementById("pomodorotimerstr");
+
+var starttime = new Date().getTime();
+console.log(starttime)
+var interval =  2 * 60 * 1000;
+var intervalid = "long"
+
+var timer = setInterval(function() {
+    var minutes = Math.floor((interval % (1000 * 60 * 60)) / (1000 * 60));
+    var seconds = Math.floor((interval % (1000 * 60)) / 1000);
+
+    if (interval < 0) {
+        // clearInterval(timer);
+        console.log("TIME UP!!");
+        if (intervalid == "long") {
+            interval =  1 * 60 * 1000;
+            vibration.start("nudge-max");
+            intervalid = "short";
+            console.log(intervalid);
+        } else {
+            interval =  2 * 60 * 1000;
+            vibration.start("nudge-max");
+            intervalid = "long";
+            console.log(intervalid);
+        }
+    } else { 
+        let pomodorotimerstr = get2digits(minutes) + ":" + get2digits(seconds);
+        pomodorotimer.text = pomodorotimerstr;
+        interval = interval - 1000;
+    }
+    },
+    1000
+)

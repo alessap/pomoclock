@@ -48,3 +48,11 @@
   text-anchor: start;
   text-length: 5;
 }
+
+#pomodorotimerstr {
+  font-size: "18";
+  font-weight: bold;
+  fill: "white";
+  text-anchor: end;
+  text-length: 5;
+}

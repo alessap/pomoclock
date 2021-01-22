@@ -74,6 +74,14 @@
       <text x="$-50" y="$-107" id="digitalclockstr">13:05</text>
     </g>
   </section>
+  <section x="92%" y="50%">
+    <g id="pomodorotimer">
+      <text x="$-200" y="$-107" id="pomodorotimerstr">10:05</text>
+    </g>
+  </section>
+  <section x="27%" y="8%">
+      <image href="./resources/icons/timer.png" x="0" y="0" width="25" height="25" />
+  </section>
   <g id="mins"  pointer-events="visible" transform="translate(50%,50%)">
     <rect x="$-3" y="-110" width="6" height="110" fill="#e0e0e0" />
   </g>
