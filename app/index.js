@@ -4,6 +4,13 @@ import { display } from "display";
 import { me as app } from 'appbit';
 import { vibration } from "haptics";
 
+
+let buttonToggle = document.getElementById("buttonToggle");
+
+buttonToggle.addEventListener("click", (evt) => {
+  console.log("click");
+});
+
 // Tick every second
 clock.granularity = "seconds";
 const months = [
