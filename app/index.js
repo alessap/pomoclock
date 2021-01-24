@@ -6,9 +6,20 @@ import { vibration } from "haptics";
 
 
 let buttonToggle = document.getElementById("buttonToggle");
+let buttonToggleState = "active";
 
 buttonToggle.addEventListener("click", (evt) => {
+  if (buttonToggleState == "active"){
+    buttonToggleState = "non-active"
+    vibration.start("bump");
+    clearInterval(timer);
+  } else {
+    buttonToggleState = "active";
+    vibration.start("bump");
+    timer = setInterval(pomodorotimerfnc, 1000);
+  };
   console.log("click");
+  console.log("buttonToggleState is: " + buttonToggleState);
 });
 
 // Tick every second
@@ -102,29 +113,32 @@ console.log(starttime)
 var interval =  2 * 60 * 1000;
 var intervalid = "long"
 
-var timer = setInterval(function() {
-    var minutes = Math.floor((interval % (1000 * 60 * 60)) / (1000 * 60));
-    var seconds = Math.floor((interval % (1000 * 60)) / 1000);
+function pomodorotimerfnc() {
+  var minutes = Math.floor((interval % (1000 * 60 * 60)) / (1000 * 60));
+  var seconds = Math.floor((interval % (1000 * 60)) / 1000);
 
-    if (interval < 0) {
-        // clearInterval(timer);
-        console.log("TIME UP!!");
-        if (intervalid == "long") {
-            interval =  1 * 60 * 1000;
-            vibration.start("nudge-max");
-            intervalid = "short";
-            console.log(intervalid);
-        } else {
-            interval =  2 * 60 * 1000;
-            vibration.start("nudge-max");
-            intervalid = "long";
-            console.log(intervalid);
-        }
-    } else { 
-        let pomodorotimerstr = get2digits(minutes) + ":" + get2digits(seconds);
-        pomodorotimer.text = pomodorotimerstr;
-        interval = interval - 1000;
-    }
-    },
-    1000
+  if (interval < 0) {
+      // clearInterval(timer);
+      console.log("TIME UP!!");
+      if (intervalid == "long") {
+          interval =  1 * 60 * 1000;
+          vibration.start("nudge-max");
+          intervalid = "short";
+          console.log(intervalid);
+      } else {
+          interval =  2 * 60 * 1000;
+          vibration.start("nudge-max");
+          intervalid = "long";
+          console.log(intervalid);
+      }
+  } else { 
+      let pomodorotimerstr = get2digits(minutes) + ":" + get2digits(seconds);
+      pomodorotimer.text = pomodorotimerstr;
+      interval = interval - 1000;
+  }
+}
+
+var timer = setInterval(
+  pomodorotimerfnc,
+  1000
 )
