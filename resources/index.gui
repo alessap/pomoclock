@@ -80,8 +80,11 @@
     </g>
   </section>
   <section x="27%" y="8%">
+    <image href="./resources/icons/timer.png" x="0" y="0" width="25" height="25" />
+  </section>
+  <section x="0" y="0">
     <g id="buttonToggle" pointer-events="visible">
-        <image href="./resources/icons/timer.png" x="0" y="0" width="25" height="25" />
+        <rect x="0%" y="0%" width="150" height="150" opacity="0" fill="#e0e0e0"/>
     </g>
   </section>
   <g id="mins"  pointer-events="visible" transform="translate(50%,50%)">
