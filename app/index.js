@@ -1,25 +1,36 @@
 import clock from "clock";
 import document from "document";
 import { display } from "display";
-import { me as app } from 'appbit';
+import { me as app } from "appbit";
 import { vibration } from "haptics";
+import * as fs from "fs";
 
-
+let pomo_status_path = "pomodoro-status.txt";
 let buttonToggle = document.getElementById("buttonToggle");
-let buttonToggleState = "active";
+
+if (fs.existsSync(pomo_status_path)) {
+  let text = fs.readFileSync(pomo_status_path, "cbor");
+  console.log(" /------ Reading from file2 ------/ ")
+  console.log(text);
+  var interval = parseInt(text.split("-")[0])  ;
+  var intervalid = text.split("-")[1] ;
+  var buttonToggleState = text.split("-")[2] ;
+} else {
+  var buttonToggleState = "active";
+}
 
 buttonToggle.addEventListener("click", (evt) => {
-  if (buttonToggleState == "active"){
-    buttonToggleState = "non-active"
-    vibration.start("bump");
-    clearInterval(timer);
-  } else {
-    buttonToggleState = "active";
-    vibration.start("bump");
-    timer = setInterval(pomodorotimerfnc, 1000);
-  };
-  console.log("click");
-  console.log("buttonToggleState is: " + buttonToggleState);
+if (buttonToggleState == "active"){
+  buttonToggleState = "non-active"
+  vibration.start("bump");
+  clearInterval(timer);
+} else {
+  buttonToggleState = "active";
+  vibration.start("bump");
+  timer = setInterval(pomodorotimerfnc, 1000);
+};
+console.log("click");
+console.log("buttonToggleState is: " + buttonToggleState);
 });
 
 // Tick every second
@@ -110,8 +121,20 @@ const pomodorotimer = document.getElementById("pomodorotimerstr");
 
 var starttime = new Date().getTime();
 console.log(starttime)
-var interval =  2 * 60 * 1000;
-var intervalid = "long"
+if (fs.existsSync(pomo_status_path)) {
+  let text = fs.readFileSync(pomo_status_path, "cbor");
+  console.log(" /------ Reading from file ------/ ")
+  console.log(text);
+  var interval = parseInt(text.split("-")[0])  ;
+  var intervalid = text.split("-")[1] ;
+} else {
+  console.log(" /------ Starting ------/ ")
+  var interval =  2 * 60 * 1000;
+  var intervalid = "long"
+  var text = interval + "-" + intervalid + "-" + buttonToggleState;
+  fs.writeFileSync(pomo_status_path, text, "cbor");
+  console.log(text);
+}
 
 function pomodorotimerfnc() {
   var minutes = Math.floor((interval % (1000 * 60 * 60)) / (1000 * 60));
@@ -125,16 +148,22 @@ function pomodorotimerfnc() {
           vibration.start("nudge-max");
           intervalid = "short";
           console.log(intervalid);
+          text = interval + "-" + intervalid + "-" + buttonToggleState;
+          fs.writeFileSync(pomo_status_path, text, "cbor");
       } else {
           interval =  2 * 60 * 1000;
           vibration.start("nudge-max");
           intervalid = "long";
           console.log(intervalid);
+          text = interval + "-" + intervalid + "-" + buttonToggleState;
+          fs.writeFileSync(pomo_status_path, text, "cbor");
       }
   } else { 
       let pomodorotimerstr = get2digits(minutes) + ":" + get2digits(seconds);
       pomodorotimer.text = pomodorotimerstr;
       interval = interval - 1000;
+      text = interval + "-" + intervalid + "-" + buttonToggleState;
+      fs.writeFileSync(pomo_status_path, text, "cbor");
   }
 }
 
