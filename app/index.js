@@ -7,10 +7,12 @@ import * as fs from "fs";
 
 let pomo_status_path = "pomodoro-status.txt";
 let buttonToggle = document.getElementById("buttonToggle");
+let short = 5;
+let long = 25;
 
 if (fs.existsSync(pomo_status_path)) {
   let text = fs.readFileSync(pomo_status_path, "cbor");
-  console.log(" /------ Reading from file2 ------/ ")
+  console.log(" /------ Reading from file1 ------/ ")
   console.log(text);
   var interval = parseInt(text.split("-")[0])  ;
   var intervalid = text.split("-")[1] ;
@@ -20,17 +22,27 @@ if (fs.existsSync(pomo_status_path)) {
 }
 
 buttonToggle.addEventListener("click", (evt) => {
-if (buttonToggleState == "active"){
-  buttonToggleState = "non-active"
-  vibration.start("bump");
-  clearInterval(timer);
-} else {
-  buttonToggleState = "active";
-  vibration.start("bump");
-  timer = setInterval(pomodorotimerfnc, 1000);
-};
-console.log("click");
-console.log("buttonToggleState is: " + buttonToggleState);
+  if (buttonToggleState == "active"){
+    buttonToggleState = "nonactive"
+    //let text = fs.readFileSync(pomo_status_path, "cbor");
+    //var interval = parseInt(text.split("-")[0])  ;
+    //var intervalid = text.split("-")[1] ;
+    //text = interval + "-" + intervalid + "-" + buttonToggleState;
+    //fs.writeFileSync(pomo_status_path, text, "cbor");
+    vibration.start("bump");
+    clearInterval(timer);
+  } else {
+    buttonToggleState = "active";
+    //let text = fs.readFileSync(pomo_status_path, "cbor");
+    //var interval = parseInt(text.split("-")[0])  ;
+    //var intervalid = text.split("-")[1] ;
+    //text = interval + "-" + intervalid + "-" + buttonToggleState;
+    //fs.writeFileSync(pomo_status_path, text, "cbor");
+    vibration.start("bump");
+    timer = setInterval(pomodorotimerfnc, 1000);
+  };
+  console.log("click");
+  console.log("buttonToggleState is: " + buttonToggleState);
 });
 
 // Tick every second
@@ -123,13 +135,14 @@ var starttime = new Date().getTime();
 console.log(starttime)
 if (fs.existsSync(pomo_status_path)) {
   let text = fs.readFileSync(pomo_status_path, "cbor");
-  console.log(" /------ Reading from file ------/ ")
+  console.log(" /------ Reading from file2 ------/ ")
   console.log(text);
   var interval = parseInt(text.split("-")[0])  ;
   var intervalid = text.split("-")[1] ;
+  var buttonToggleState = text.split("-")[2] ;
 } else {
   console.log(" /------ Starting ------/ ")
-  var interval =  2 * 60 * 1000;
+  var interval =  long * 60 * 1000;
   var intervalid = "long"
   var text = interval + "-" + intervalid + "-" + buttonToggleState;
   fs.writeFileSync(pomo_status_path, text, "cbor");
@@ -144,14 +157,14 @@ function pomodorotimerfnc() {
       // clearInterval(timer);
       console.log("TIME UP!!");
       if (intervalid == "long") {
-          interval =  1 * 60 * 1000;
+          interval =  short * 60 * 1000;
           vibration.start("nudge-max");
           intervalid = "short";
           console.log(intervalid);
           text = interval + "-" + intervalid + "-" + buttonToggleState;
           fs.writeFileSync(pomo_status_path, text, "cbor");
       } else {
-          interval =  2 * 60 * 1000;
+          interval =  long * 60 * 1000;
           vibration.start("nudge-max");
           intervalid = "long";
           console.log(intervalid);
