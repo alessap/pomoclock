@@ -12,7 +12,7 @@ Here is how it looks when active:
 
 - [x] Add digital clock.
 
-- [x] Add Always ON Display support: it hides the second hand. (Not available due to missing AOD permission: not all decelopers are given permission).
+- [x] Add Always ON Display support: it hides the second hand. (Not available due to missing AOD permission: not all developers are given this permission by Fitbit).
 
 ## Future plans
 
