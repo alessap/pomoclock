@@ -22,7 +22,7 @@
     "appUUID": "7ada2fa5-a72d-49fa-82b8-c8812e27f889",
     "appType": "clockface",
     "appDisplayName": "pomoclock",
-    "iconFile": "resources/icon.png",
+    "iconFile": "resources/icons/pomodoro.png",
     "wipeColor": "#ffffff",
     "requestedPermissions": [],
     "buildTargets": [
