@@ -26,6 +26,9 @@ let hourHand = document.getElementById("hours");
 let minHand = document.getElementById("mins");
 let secHand = document.getElementById("secs");
 
+let pomodoroicon = document.getElementById("pomodoroicon");
+pomodoroicon.href = "./resources/icons/pomodoro.png";
+
 // Returns an angle (0-360) for the current hour in the day, including minutes
 function hoursToAngle(hours, minutes) {
   let hourAngle = (360 / 12) * hours;
@@ -84,4 +87,5 @@ function updateClock() {
 // Update the clock every tick event
 clock.addEventListener("tick", updateClock);
 
+// Activate pomodoro timer
 let pomotimer = pomo;

@@ -80,7 +80,7 @@
     </g>
   </section>
   <section x="27%" y="8%">
-    <image href="./resources/icons/pomodoro.png" x="0" y="0" width="25" height="25" />
+    <image id="pomodoroicon" href="./resources/icons/pomodoro.png" x="0" y="0" width="9%" height="9%" />
   </section>
   <section x="0" y="0">
     <g id="buttonToggle" pointer-events="visible">
