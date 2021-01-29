@@ -36,6 +36,7 @@
     "debug": "fitbit"
   },
   "dependencies": {
+    "@fitbit/image-codec-txi": "^1.1.5",
     "@fitbit/jsonrpc-ts": "^3.2.1",
     "fp-ts": "^2.8.2",
     "io-ts": "^2.2.10"
