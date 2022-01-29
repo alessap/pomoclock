@@ -23,3 +23,23 @@ Here is how it looks when active:
 - [ ] Add stats.
 
 - [ ] Add customization settings.
+
+## Getting started
+
+[Guide here.](https://dev.fitbit.com/build/guides/command-line-interface/#the-toolchain-and-shell)
+
+Install Node.js 8.x
+
+
+npm add --dev @fitbit/sdk
+npm add --dev @fitbit/sdk-cli
+npx fitbit-build generate-appid
+npx fitbit-build
+
+npm install
+
+npx fitbit-build
+npx fitbit
+fitbit$ install
+
+fitbit$ build
