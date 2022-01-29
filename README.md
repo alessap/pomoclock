@@ -4,11 +4,7 @@ pomoclock is a simple analogue clock face for Fitbit Versa 2.
 
 Here is how it looks when active:
 
-![alt text](./resources/screenshots/Screenshot01_v0_1_1.png)
-
-Here is how it looks with Always ON Display enabled (AOD):
-
-![alt text](./resources/screenshots/Screenshot02_v0_1_1.png)
+![alt text](./resources/screenshots/Screenshot_v0_1_2.png)
 
 ## Features
 
@@ -16,7 +12,7 @@ Here is how it looks with Always ON Display enabled (AOD):
 
 - [x] Add digital clock.
 
-- [x] Add Always ON Display support: it hides the second hand.
+- [x] Add Always ON Display support: it hides the second hand. (Not available due to missing AOD permission: not all developers are given this permission by Fitbit).
 
 ## Future plans
 
